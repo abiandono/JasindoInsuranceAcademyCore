@@ -1,0 +1,16 @@
+grant all privileges on starctmtest.* to starcrm;
+go
+set global log_bin_trust_function_creators=1;
+go
+use dbName
+go
+grant super on *.* to starcrmtest;
+go
+--skip-grant-tables
+go
+-----------------------------
+--DUMP DB
+----------------------------
+mysqldump -u starcrm -p starcrm >g:\starcrm_dump.sql
+
+mysql>source g:\starcrm_dump.sql
